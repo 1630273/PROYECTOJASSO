@@ -1,22 +1,40 @@
+<?php
 
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PAGINA PRINCIPAL</title>
-    <link rel="stylesheet" href="css/style.css">
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/estilolog.css">
+	<!-- Este script es para la animacion de usuario y contraseña -->
+	<script src="js/jquey.js"></script>
 </head>
 <body>
-    <nav>
-        <h2>menu</h2>
-    </nav>
-    <main>
 
- 
-    <h1>PRUEBA DEL SERVIDOR</h1>
+<form action="index.html"  class="login-from">
+	
+<img src="img/user-circle-solid.svg">
 
-</main>
+<div class="txtb">
+	<input type="text">
+	<span data-placeholder="Usuario"></span>
+</div>
+
+<div class="txtb">
+	<input type="password">
+	<span data-placeholder="Contraseña"></span>
+</div>
+
+<input type="submit" class="logbtn" value="Entrar">
+
+<div class="bottom-text">
+	¿Aun no tiene cuenta? <a href="#">Registrar</a>
+</div>
+
+</form>
+
+<script type="text/javascript" src="js/jslogin.js">
+</script>
 </body>
 </html>
