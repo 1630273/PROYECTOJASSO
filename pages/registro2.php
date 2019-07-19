@@ -3,10 +3,10 @@
 
     if(isset($_POST['registrar'])){
         if(strlen($_POST['matricula'])>=1 && strlen($_POST['nombre'])>=1 && strlen($_POST['AP'])>=1 && strlen($_POST['nombre'])>=1){
-            $matricula= trim( $_POST['matricula']);
-            $nombre= trim( $_POST['nombre']);
-            $AP= trim( $_POST['AP']);
-            $AM= trim( $_POST['AM']);
+            $matricula=  $_POST['matricula'];
+            $nombre= $_POST['nombre'];
+            $AP= $_POST['AP'];
+            $AM= $_POST['AM'];
             $consulta = "INSERT INTO MAESTROS(matricula,nombre,apellidoP,apellidoM) VALUES('$matricula','$nombre','$AP','$AM')";
 
             $resultado = mysqli_query($conexion,$consulta);
@@ -65,7 +65,7 @@
         </thead>
         <tbody>
             <?php
-            $obtener = "SELECT matricula,nombre,apellidoP,apellidoM FROM MAESTROS";
+            $obtener = "SELECT id_maestro,matricula,nombre,apellidoP,apellidoM FROM MAESTROS";
             $resultadosObtenidos = mysqli_query($conexion,$obtener);
             
             while($row = mysqli_fetch_array($resultadosObtenidos)){?>
@@ -81,7 +81,7 @@
                         </a>  
                         <a href="eliminar.php?id_maestro=<?php echo $row['id_maestro']?>"class="btn btn-danger">
                         <i class="far fa-trash-alt"></i>
-                        </a>   
+                        </a> 
                     </td>
                 </tr>
                 <?php } ?>
