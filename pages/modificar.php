@@ -9,14 +9,14 @@ $apellidoM  ='';
 
 if(isset($_GET['id_maestro'])) {
     $id_maestro = $_GET['id_maestro'];
-    $query = "SELECT id_maestro,matricula,nombre,apellidoP,apellidoM FROM MAESTROS WHERE id_maestro=$id_maestro";
+    $query = "SELECT id_maestro,Matricula_maestro,Nombre,Ap_paterno,Ap_materno FROM MAESTROS WHERE id_maestro=$id_maestro";
     $result = mysqli_query($conexion, $query);
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_array($result);
-        $matricula =$row ['matricula'];
-        $nombre =$row['nombre'];
-        $apellidoP = $row['apellidoP'];
-        $apellidoM = $row['apellidoM'];
+        $matricula =$row ['Matricula_maestro'];
+        $nombre =$row['Nombre'];
+        $apellidoP = $row['Ap_paterno'];
+        $apellidoM = $row['Ap_materno'];
     }
 }
 
@@ -27,7 +27,7 @@ if(isset($_GET['id_maestro'])) {
         $apellidoP = $_POST['AP'];
         $apellidoM = $_POST['AM'];
       
-        $query = "UPDATE MAESTROS set matricula = ' $matricula', nombre = '$nombre', apellidoP = '$apellidoP', apellidoM = '$apellidoM'  WHERE id_maestro= $id_maestro";
+        $query = "UPDATE MAESTROS set Matricula_maestro = ' $matricula', Nombre = '$nombre', Ap_paterno = '$apellidoP', Ap_materno = '$apellidoM'  WHERE id_maestro= $id_maestro";
         mysqli_query($conexion, $query);
     
     header('Location:registro2.php'); 
