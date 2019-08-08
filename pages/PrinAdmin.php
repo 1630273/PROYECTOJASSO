@@ -54,7 +54,7 @@
                                 </div>
                             </div>    
                             <div>
-                            <a href="#" class="btn btn-block btn-success "> <i class="fas fa-arrow-circle-right fa-sm  mx-2"></i>Ir al Horario</a>
+                            <a href="registroEmpleadoAdmin.php" class="btn btn-block btn-success "> <i class="fas fa-arrow-circle-right fa-sm  mx-2"></i>Ir al reggistro</a>
                             </div>
                         </div>
                     </div>

@@ -29,7 +29,7 @@
 <input type="submit" class="logbtn" value="Entrar">
 
 <div class="bottom-text">
-	¿Aun no tiene cuenta? <a href="#">Registrar</a>
+	¿Aun no tiene cuenta? <a href="registroEmpleado.php">Registrar</a>
 </div>
 
 </form>

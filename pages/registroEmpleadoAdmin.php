@@ -1,21 +1,25 @@
 <?php
     include("../conexion/conexion.php");
 
-    include("../includes/header.php");
+    include("../includes/headerAdmin.php");
 
     if(isset($_POST['registrar'])){
        
-            $matricula=  $_POST['matricula'];
+            $cod_emp=  $_POST['cod_emp'];
+    
             $nombre= $_POST['nombre'];
             $AP=  $_POST['AP'];
             $AM=  $_POST['AM'];
             $correo =$_POST['correo'];
             $carrera=$_POST['carrera'];
-            $consulta = "INSERT INTO maestros(Matricula_maestro,Nombre,Ap_paterno,Ap_materno,Correo_usuario,Id_carrera) VALUES('$matricula','$nombre','$AP','$AM','$correo','$carrera')";
-
-            $resultado = mysqli_query($conexion,$consulta);
+            $tipo=$_POST['tipo'];
+            $pass=$_POST['confir'];
+            $consulta = "INSERT INTO empleado(Cod_empleado,Nombre,Ap_paterno,Ap_materno,Correo,Contrasena,Id_tipo_empleado,Id_carrera) VALUES('$cod_emp','$nombre','$AP','$AM','$correo','$pass','$carrera','$tipo')";
+        
+            $resultado = mysqli_query($conexion,$consulta);          
+           
             
-            if($resultado){
+            if($resultado ){
                 ?>
                 <h3>Registro exitoso</h3>
                 <?php
@@ -30,19 +34,18 @@
 
 ?>
 
-
 <main class="conteiner">
     <div class="row    ">
-        <div class="col mx-5 ">
+        <div class="col mx-5  ">
             <form method="post" >
-                <div class="from-group row">
+                <div class="from-group row mt-3">
                     <div class="col-12 col-md-6  mb-3">
-                        <label for="matricula">Matricula</label>
-                        <input type="text" name="matricula" placeholder="Matricula" class="form-control" autofocus>
+                        <label for="cod_emp">Codigo de empleado</label>
+                        <input type="text" name="cod_emp" placeholder="Codigo de empleado" class="form-control" requierd>
                     </div>
                     <div class="col-12 col-md-6  mb-3">    
                         <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" placeholder="Nombre" class="form-control" >
+                        <input type="text" name="nombre" placeholder="Nombre" class="form-control" requierd>
                       
                     </div>
                 </div>
@@ -50,7 +53,7 @@
                     <div class="col-12 col-md-6  mb-3">
 
                         <label for="AP">Apellido Paterno</label>
-                        <input type="text" name="AP" placeholder="Apellido Paterno" class="form-control" >
+                        <input type="text" name="AP" placeholder="Apellido Paterno" class="form-control" requierd>
                     </div>
                     <div class="col-12 col-md-6  mb-3">
                         <label for="AM">Apellido Materno</label>
@@ -59,7 +62,22 @@
                 </div>
 
                 <div class="from-group row mt-3">
-                    <div class="col-12 col-md-6  mb-3">
+                    <div class="col-6 col-md-3  mb-3">
+
+                        <label for="tipo">Tipo Usuario</label>
+                        <select name="tipo" class="form-control">
+                        <option value="0">Seleccione:</option>
+                            <?php
+                            $cargartipos = ("SELECT Id_tipo_empleado,Nombre FROM tipo_empleado");
+                            $resultadostipos = mysqli_query($conexion,$cargartipos);
+                            while ($row = mysqli_fetch_array($resultadostipos)) {?>
+                            <option value="<?php echo $row['Id_tipo_empleado'] ?>"><?php echo $row['Nombre'] ?></option><?php
+                            }
+                            ?>
+                        </select>
+               
+                    </div>
+                    <div class="col-6 col-md-3  mb-3">
 
                         <label for="carrera">Carrera</label>
                         <select name="carrera" class="form-control">
@@ -73,6 +91,7 @@
                             ?>
                         </select>
                     </div>
+                
                     <div class="col-12 col-md-6  mb-3">
                         <label for="correo">Correo</label>
                         <input type="text" name="correo" placeholder="Correo" class="form-control" >
