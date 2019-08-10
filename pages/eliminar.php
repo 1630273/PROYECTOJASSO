@@ -2,9 +2,9 @@
 
 include("../conexion/conexion.php");
 
-if(isset($_GET['id_maestro'])) {
-    $id = $_GET['id_maestro'];
-    $query = "DELETE FROM MAESTROS WHERE id_maestro = $id";
+if(isset($_GET['Id_empleado'])) {
+    $id = $_GET['Id_empleado'];
+    $query = "DELETE FROM empleado WHERE Id_empleado = $id";
     $result = mysqli_query($conexion, $query);
     if(!$result) {
       die("error al eliminar.");

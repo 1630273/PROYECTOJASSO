@@ -102,11 +102,11 @@
                     <div class="col-12 col-md-6  mb-3">
 
                         <label for="contraseña">Contraseña</label>
-                        <input type="text" name="contra" placeholder="Contraseña" class="form-control" >
+                        <input type="password"  name="contra" placeholder="Contraseña" class="form-control" >
                     </div>
                     <div class="col-12 col-md-6  mb-3">
                         <label for="confir">Confirmar Contraseña</label>
-                        <input type="text" name="confir" placeholder="Confirmar contraseña" class="form-control" >
+                        <input type="password"  name="confir" placeholder="Confirmar contraseña" class="form-control" >
                     </div>
                 </div>
           
