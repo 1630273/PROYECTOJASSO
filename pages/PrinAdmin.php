@@ -48,6 +48,7 @@
                                 <div class="my-3 mx-3">
                                 <i class="fas fa-user-plus fa-4x"></i>
                                 </div>
+                                
                                 <div class="my-2 mx-2 d-flex-block  justify-content-center" >
                                     <p  class="h5">Alta De </p> 
                                     <p  class="h5">Maestros</p>
