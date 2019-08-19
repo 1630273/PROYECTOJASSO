@@ -1,0 +1,14 @@
+button{
+height: 50px;
+width: 6%;
+}
+
+.botones{
+    background-color: #99FFFF;
+}
+h1{
+    font-family: 'Courier New', Courier, monospace;
+    position: relative;
+    color: red;
+}
+

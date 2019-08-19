@@ -1,6 +1,43 @@
-<?php
+<!-- /*
+include 'conexion/conexion.php';
 
-?>
+session_start();
+if(isset($_GET['cerrar_sesion'])){
+    session_unset();
+    session_destroy();
+}
+
+if(isset($_SESSION['rol'])){
+   switch($_SESSION['rol']){
+	 case 1:
+         header('location: pages/PagAdmin.php');
+	 break;
+
+	 case 2:
+	     header('location: pages/PagUsuario.php');
+	 break;
+
+	 default:	 
+}
+}
+$conexion = mysqli_connect($cons_equipo,$cons_usuario,$cons_contra,$cons_base_datos);
+if(isset($_POST['usuario']) && isset($_POST['password'])){
+	$username = $_POST['usuario'];
+	$password = $_POST['password'];
+
+$query =  ('SELECT * FROM usuarios WHERE usuario = :username AND password = :password');
+$query->execute(['usuario' => $username, 'password' => $password]);
+$row = $query->fetch(PDO::FETCH_NUM);
+
+if($row == true){
+
+}else{
+	echo "No existe";
+}
+}
+
+
+*/ -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,17 +49,17 @@
 </head>
 <body>
 
-<form action="index.html"  class="login-from">
+<form action="conexion/logear.php" method="POST" class="login-from">
 	
 <img src="img/user-circle-solid.svg">
 
 <div class="txtb">
-	<input type="text">
+	<input type="text" name="usuario">
 	<span data-placeholder="Usuario"></span>
 </div>
 
 <div class="txtb">
-	<input type="password">
+	<input type="password" name="password">
 	<span data-placeholder="Contraseña"></span>
 </div>
 
