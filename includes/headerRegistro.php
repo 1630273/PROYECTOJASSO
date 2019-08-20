@@ -1,9 +1,8 @@
 <?php
     include("../conexion/conexion.php");
 
-    session_start();
-    $usuario = $_SESSION['usuario'];
     ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,8 +17,10 @@
   <body>
 
     <nav class="navbar navbar-dark bg-primary">
-      <div class="container">
-        <a class="navbar-brand" href="PrinAdmin.php">SICM</a>    <?php echo$usuario; ?>
-
+      <div class="container d-flex justify-content-start">
+        <a class="navbar-brand" href="../index.php"> SIM</a>
+      
       </div>
     </nav>
+
+    <div

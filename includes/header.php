@@ -1,3 +1,10 @@
+<?php
+    include("../conexion/conexion.php");
+
+    session_start();
+    $usuario = $_SESSION['usuario'];
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,6 +21,7 @@
     <nav class="navbar navbar-dark bg-primary">
       <div class="container d-flex justify-content-start">
         <a class="navbar-brand" href="PrinMaestro.php"> SIM</a>
+        <?php echo$usuario; ?>
       </div>
     </nav>
 

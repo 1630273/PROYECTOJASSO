@@ -1,8 +1,6 @@
 <?php
-    include("../conexion/conexion.php");
-
     include("../includes/headerAdmin.php");
-    ?>
+   ?>
 
     <main class="container ">
         <div clas="row no-wrap ">

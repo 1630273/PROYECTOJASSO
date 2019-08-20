@@ -1,7 +1,8 @@
 <?php
-    include("../conexion/conexion.php");
+
 
     include("../includes/header.php");
+ 
     ?>
 
     <main class="container ">

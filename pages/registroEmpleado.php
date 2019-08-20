@@ -1,7 +1,7 @@
 <?php
     include("../conexion/conexion.php");
 
-    include("../includes/header.php");
+    include("../includes/headerRegistro.php");
 
     if(isset($_POST['registrar'])){
        

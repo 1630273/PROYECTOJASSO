@@ -15,7 +15,7 @@ body{
 
 .login-from{
 	width: 360px;
-	background:#f1f1f1;
+	background: white;
 	height: 530px;
 	padding: 80px 40px;
 	border-radius:  10px;
@@ -60,7 +60,7 @@ img
     position: absolute;
     top: 50%;
     left: 5px;
-    color:#adadad;
+    color:black;
     transform: translateY(-50%);
     z-index: -1;
     transition: .5s;

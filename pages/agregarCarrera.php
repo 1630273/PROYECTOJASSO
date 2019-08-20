@@ -8,9 +8,9 @@
             
             $nombre= $_POST['nombre'];
             
-            $cat=$_POST['categoria'];
+            $siglas=$_POST['siglas'];
            
-            $consulta = "INSERT INTO materia(Nombre_materia,Id_cat_materia) VALUES('$nombre','$cat')";
+            $consulta = "INSERT INTO carrera(Nombre,Siglas) VALUES('$nombre','$siglas')";
         
             $resultado = mysqli_query($conexion,$consulta);          
            
@@ -25,7 +25,7 @@
                 <?php
             }
 
-          
+            $id_carrera=mysqli_insert_id($conexion);
            
     }
 
@@ -47,18 +47,9 @@
 
                 <div class="from-group row mt-3 d-flex justify-content-center">
                     <div class="col-12 col-md-6  mb-3">
-                        <label for="categoria">Categoria</label>
-                            <select name="categoria" class="form-control">
-                            <option value="0">Seleccione:</option>
-                                <?php
-                                $cargarcategorias = ("SELECT Id_cat_materia,Nombre FROM cat_materia");
-                                $resultadosCategorias = mysqli_query($conexion,$cargarcategorias);
-                                while ($row = mysqli_fetch_array($resultadosCategorias)) {?>
-                                <option value="<?php echo $row['Id_cat_materia'] ?>"><?php echo $row['Nombre'] ?></option><?php
-                                }
-                                ?>
-                            </select>
-                    </div>
+                         <label for="siglas">Siglas</label>
+                        <input type="text" name="siglas" placeholder="Siglas de la carrera" class="form-control" requierd>
+                   </div>
                 </div>
                 
                 <div class="from-group row  d-flex justify-content-center">
@@ -67,6 +58,14 @@
                     </div>
 
                 </div>
+          
+
+                 <div class="from-group row   d-flex justify-content-end ">
+                   <div class="col-12 col-md-6  mb-3  ">
+                      <a href="agregarMateria_Carrera.php?id_carrera=<?php echo $id_carrera?>" class="btn btn-primary"> Siguiente
+                      <i class="fas fa-arrow-circle-right fa-sm  mx-2"></i>
+                      </a>
+                    </div>
 
                  </div>
                  </form>
