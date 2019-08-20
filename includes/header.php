@@ -3,7 +3,12 @@
 
     session_start();
     $usuario = $_SESSION['usuario'];
-    ?>
+
+
+   
+   ?>
+
+  
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,8 +25,22 @@
 
     <nav class="navbar navbar-dark bg-primary">
       <div class="container d-flex justify-content-start">
-        <a class="navbar-brand" href="PrinMaestro.php"> SIM</a>
-        <?php echo$usuario; ?>
+        <a class="navbar-brand" href="PrinMaestro.php"> SISTEMA DE MAESTROS</a>
+
+<?php
+        $obtener = "select Nombre,Ap_paterno, Ap_materno FROM empleado WHERE correo ='".$usuario."' ";
+   $resultadosObtenidos = mysqli_query($conexion,$obtener);
+
+
+while($row = mysqli_fetch_array($resultadosObtenidos)){?>
+
+
+
+     <?php echo $row['Nombre'].$row['Ap_paterno'].$row['Ap_materno']?> 
+    
+<?php } ?>
+
+        
       </div>
     </nav>
 

@@ -2,13 +2,28 @@
 
     include("../includes/header.php");
 
-    if (isset($_POST['Seleccionar[]'])) {
+    $sentencia = "SELECT  Id_materia,Nombre_materia FROM materia";
+    $query = mysqli_query($conexion,$sentencia);
 
-        // Checkbox is selected
-    } else {
     
-       // Alternate code
+    $index = 1;
+    while($row = mysqli_fetch_array($query)){
+    $valor = $row["nombre"];
+    $valor2 = $row["apellido"];
+    
+    $insertsql= "insert into lista (`dato1`,`dato2`)values ('$valor', now())";
+    // mysql_query($insertsql);
+    $conexion->query($insertsql);
+    $index++;
     }
+    
+    if ($insertsql == TRUE) {
+        echo "Nuevos registros ingresados correctamente";
+    } else {
+        echo "Error: " . $insertsql . "<br>" . $conn->error;
+    }
+ 
+
 
 ?>
 
@@ -30,18 +45,18 @@
                         </thead>
                         <tbody>
                     <?php
-                        $obtener = "SELECT  Id_materia,Nombre FROM materia";
+                        $obtener = "SELECT  Id_materia,Nombre_materia FROM materia";
                         $resultadosObtenidos = mysqli_query($conexion,$obtener);
                                 
                     while($row = mysqli_fetch_array($resultadosObtenidos)){?>
 
                         <tr>
-                        <td>   <label ><input type="checkbox"  name="seleccion[]" value="<?php echo $val=$row['Id_materia']?>" > Confirmar</label>
+                        <td>   <label ><input type="checkbox"  name="seleccion" class="seleccion" onclick="confirmar();" value="<?php echo $val=$row['Id_materia']?>" > Confirmar</label>
                                </td>
                                
-                            <td> <?php echo $row['Nombre'] ?> </td>
+                            <td> <?php echo $row['Nombre_materia'] ?> </td>
                             <td> 
-                                    <select name="Expertiz" class="form-control" disabled>
+                                    <select name="Expertiz" class="form-control"  disabled>
                                     <option value="0">Seleccione:</option>
                                     <?php
                                     $cargarExpertiz = ("SELECT Id_expertiz,Nombre FROM expertiz");
@@ -63,6 +78,35 @@
 
                     <input type="submit"  class="  btn btn-success btn-block mt-3 " name="registrar" >
                     </div>
+
+                    <script>
+                    function confirmar() {
+
+
+                        let listadecheck=document.querySelectorAll('.seleccion');
+                        
+                        let listadeselect=document.querySelectorAll("select");
+
+                        for (var i=0; i<listadecheck.length; i++) {
+              
+                             if (listadecheck[i].checked) 
+                                {
+                                 
+                                   listadeselect[i].disabled = false;
+
+                                } else {
+                                    listadeselect[i].disabled = true;
+                                }
+                         }
+
+
+                       
+                                                            
+                        }
+                        
+                    
+    
+                </script>
             </div>
         </div>    
     </div>

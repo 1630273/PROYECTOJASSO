@@ -19,7 +19,22 @@
 
     <nav class="navbar navbar-dark bg-primary">
       <div class="container">
-        <a class="navbar-brand" href="PrinAdmin.php">SICM</a>    <?php echo$usuario; ?>
+        <a class="navbar-brand" href="PrinAdmin.php">SISTEMA DE MAESTROS</a> 
+        
+   
+        <?php
+        $obtener = "select Nombre,Ap_paterno, Ap_materno FROM empleado WHERE correo ='".$usuario."' ";
+   $resultadosObtenidos = mysqli_query($conexion,$obtener);
+           
+    
+while($row = mysqli_fetch_array($resultadosObtenidos)){?>
+
+
+
+  <?php echo strtoupper($row['Nombre'].' '.$row['Ap_paterno'].' '.$row['Ap_materno'])?> 
+ 
+<?php } ?>
+  
 
       </div>
     </nav>
