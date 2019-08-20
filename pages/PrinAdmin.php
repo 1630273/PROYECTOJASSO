@@ -17,7 +17,7 @@
                             </div>
                         </div>    
                         <div>
-                        <a href="#" class="btn btn-block btn-success "> <i class="fas fa-arrow-circle-right fa-sm  mx-2"></i>Ir al Horario</a>
+                        <a href="agregarCarrera.php" class="btn btn-block btn-success "> <i class="fas fa-arrow-circle-right fa-sm  mx-2"></i>Ir al Horario</a>
                         </div>
                     </div>              
                 </div> 
@@ -67,11 +67,11 @@
                                 </div>
                                 <div class="my-2 mx-2 d-flex-block  justify-content-center" >
                                     <p  class="h5">Alta De </p> 
-                                    <p  class="h5">Plan De Estudios</p>
+                                    <p  class="h5">Materias</p>
                                 </div>
                             </div>    
                             <div>
-                            <a href="#" class="btn btn-block btn-success "> <i class="fas fa-arrow-circle-right fa-sm  mx-2"></i>Ir al Horario</a>
+                            <a href="agregarMateria.php" class="btn btn-block btn-success "> <i class="fas fa-arrow-circle-right fa-sm  mx-2"></i>Ir al Horario</a>
                             </div>
                         </div>
                     </div>
