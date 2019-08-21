@@ -3,28 +3,12 @@
 
     include("../includes/headerAdmin.php");
 
-  $carrera=1;
-
+$carrea=1;
     if(isset($_POST['guardar'])){
        
-            $materia=$_POST['materia'];
-            $numero=$_POST['numero'];
-            $carrera=$_POST['carrera'];
-       
-            $consulta = "INSERT INTO materia_carrera(Id_materia,Id_num_cuatri,Id_carrera) VALUES('$materia','$numero','$carrera')";
-        
-            $resultado = mysqli_query($conexion,$consulta);          
-           
             
-            if($resultado ){
-                ?>
-                <h3>Registro exitoso</h3>
-                <?php
-            } else {
-                ?>
-                <h3>HA ocurrido un error</h3>
-                <?php
-            }
+          
+        $carrera=$_POST['carrera'];
 
         
     } 
@@ -34,11 +18,12 @@
     <div class="row    ">
         <div class="col mx-5  ">
             <form method="post" >
+                  
 
-            <div class="from-group row mt-3 d-flex justify-content-center" >
-                 <div class="col-12 col-md-6  mb-3">
+                <div class="from-group row mt-3 d-flex justify-content-center">
+                    <div class="col-12 col-md-6  mb-3">
 
-                 <label for="carrera">Carrera</label>
+                    <label for="carrera">Carrera</label>
                         <select name="carrera" class="form-control">
                         <option value="0">Seleccione:</option>
                             <?php
@@ -50,42 +35,7 @@
                             ?>
                         </select>
                     </div>
-                    </div>
-                 <div class="from-group row mt-3 d-flex justify-content-center" >
-                 <div class="col-12 col-md-6  mb-3">
-
-                    <label for="materia">Materia</label>
-                        <select name="materia" class="form-control">
-                        <option value="0">Seleccione:</option>
-                            <?php
-                            $cargarcarreras = ("SELECT Id_materia,Nombre_materia FROM materia");
-                            $resultadosCarreras = mysqli_query($conexion,$cargarcarreras);
-                            while ($row = mysqli_fetch_array($resultadosCarreras)) {?>
-                            <option value="<?php echo $row['Id_materia'] ?>"><?php echo $row['Nombre_materia'] ?></option><?php
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    </div>
-                    <div class="from-group row mt-3 d-flex justify-content-center" >   
-                    <div class="col-12 col-md-6  mb-3 ">
-                    <label for="numer">Cuatrimestre</label>
-                        <select name="numero" class="form-control">
-                        <option value="0">Seleccione:</option>
-                            <?php
-                            $cargarcuatris = ("SELECT Id_num_cuatri,Nombre FROM num_cuatri");
-                            $resultadosCuatris = mysqli_query($conexion,$cargarcuatris);
-                            while ($row = mysqli_fetch_array($resultadosCuatris)) {?>
-                            <option value="<?php echo $row['Id_num_cuatri'] ?>"><?php echo $row['Nombre'] ?></option><?php
-                            }
-                            ?>
-                        </select>
-                    </div>
-
-                    
-                </div>     
-
-                
+                </div>
                 <div class="  d-flex justify-content-center ">
                    <div class="col-12 col-md-6  mb-3 ">
                         <button class=" btn btn-success btn-block mt-3   " name="guardar"> Guardar</button>
@@ -129,9 +79,8 @@
                                 <td> <?php echo $row['Nombre'] ?> </td>
                                 <td> 
                                  
-                                <a href="eliminar_materia.php?Id_materia_carrera=<?php echo $row['Id_materia_carrera']?>&Id_carrera=<?php echo $row['Id_carrera']?> "class="btn btn-danger">
-                                <i class="far fa-trash-alt"></i>
-                                </a> 
+                              
+                                
                             </td>
     
                         

@@ -12,7 +12,7 @@
             $AM=  $_POST['AM'];
             $correo =$_POST['correo'];
             $carrera=$_POST['carrera'];
-            $tipo=$_POST['tipo'];
+            $tipo=1;
             $pass=$_POST['confir'];
             $consulta = "INSERT INTO empleado(Cod_empleado,Nombre,Ap_paterno,Ap_materno,Correo,Contrasena,Id_tipo_empleado,Id_carrera) VALUES('$cod_emp','$nombre','$AP','$AM','$correo','$pass','$carrera','$tipo')";
         
@@ -62,22 +62,9 @@
                 </div>
 
                 <div class="from-group row mt-3">
-                    <div class="col-6 col-md-3  mb-3">
-
-                        <label for="tipo">Tipo Usuario</label>
-                        <select name="tipo" class="form-control">
-                        <option value="0">Seleccione:</option>
-                            <?php
-                            $cargartipos = ("SELECT Id_tipo_empleado,Nombre FROM tipo_empleado");
-                            $resultadostipos = mysqli_query($conexion,$cargartipos);
-                            while ($row = mysqli_fetch_array($resultadostipos)) {?>
-                            <option value="<?php echo $row['Id_tipo_empleado'] ?>"><?php echo $row['Nombre'] ?></option><?php
-                            }
-                            ?>
-                        </select>
-               
-                    </div>
-                    <div class="col-6 col-md-3  mb-3">
+                   
+                    
+                    <div class="col-12 col-md-6  mb-3">
 
                         <label for="carrera">Carrera</label>
                         <select name="carrera" class="form-control">

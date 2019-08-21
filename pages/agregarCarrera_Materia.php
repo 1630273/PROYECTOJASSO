@@ -3,13 +3,12 @@
 
     include("../includes/headerAdmin.php");
 
-  $carrera=1;
+    $carrera=$_GET['id_carrera'];
 
     if(isset($_POST['guardar'])){
        
             $materia=$_POST['materia'];
             $numero=$_POST['numero'];
-            $carrera=$_POST['carrera'];
        
             $consulta = "INSERT INTO materia_carrera(Id_materia,Id_num_cuatri,Id_carrera) VALUES('$materia','$numero','$carrera')";
         
@@ -34,25 +33,25 @@
     <div class="row    ">
         <div class="col mx-5  ">
             <form method="post" >
-
-            <div class="from-group row mt-3 d-flex justify-content-center" >
-                 <div class="col-12 col-md-6  mb-3">
-
-                 <label for="carrera">Carrera</label>
-                        <select name="carrera" class="form-control">
+                 <div class="from-group row mt-3 d-flex justify-content-center" >
+                    <div class="col-12 col-md-6  mb-3 ">
+                   
+                    <label for="numer">Cuatrimestre</label>
+                        <select name="numero" class="form-control">
                         <option value="0">Seleccione:</option>
                             <?php
-                            $cargarcarreras = ("SELECT id_carrera,siglas FROM carrera");
-                            $resultadosCarreras = mysqli_query($conexion,$cargarcarreras);
-                            while ($row = mysqli_fetch_array($resultadosCarreras)) {?>
-                            <option value="<?php echo $row['id_carrera'] ?>"><?php echo $row['siglas'] ?></option><?php
+                            $cargarcuatris = ("SELECT Id_num_cuatri,Nombre FROM num_cuatri");
+                            $resultadosCuatris = mysqli_query($conexion,$cargarcuatris);
+                            while ($row = mysqli_fetch_array($resultadosCuatris)) {?>
+                            <option value="<?php echo $row['Id_num_cuatri'] ?>"><?php echo $row['Nombre'] ?></option><?php
                             }
                             ?>
                         </select>
                     </div>
-                    </div>
-                 <div class="from-group row mt-3 d-flex justify-content-center" >
-                 <div class="col-12 col-md-6  mb-3">
+                </div>     
+
+                <div class="from-group row mt-3 d-flex justify-content-center">
+                    <div class="col-12 col-md-6  mb-3">
 
                     <label for="materia">Materia</label>
                         <select name="materia" class="form-control">
@@ -66,26 +65,7 @@
                             ?>
                         </select>
                     </div>
-                    </div>
-                    <div class="from-group row mt-3 d-flex justify-content-center" >   
-                    <div class="col-12 col-md-6  mb-3 ">
-                    <label for="numer">Cuatrimestre</label>
-                        <select name="numero" class="form-control">
-                        <option value="0">Seleccione:</option>
-                            <?php
-                            $cargarcuatris = ("SELECT Id_num_cuatri,Nombre FROM num_cuatri");
-                            $resultadosCuatris = mysqli_query($conexion,$cargarcuatris);
-                            while ($row = mysqli_fetch_array($resultadosCuatris)) {?>
-                            <option value="<?php echo $row['Id_num_cuatri'] ?>"><?php echo $row['Nombre'] ?></option><?php
-                            }
-                            ?>
-                        </select>
-                    </div>
-
-                    
-                </div>     
-
-                
+                </div>
                 <div class="  d-flex justify-content-center ">
                    <div class="col-12 col-md-6  mb-3 ">
                         <button class=" btn btn-success btn-block mt-3   " name="guardar"> Guardar</button>

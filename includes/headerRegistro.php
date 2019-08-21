@@ -18,7 +18,7 @@
 
     <nav class="navbar navbar-dark bg-primary">
       <div class="container d-flex justify-content-start">
-        <a class="navbar-brand" href="../index.php"> SIM</a>
+        <a class="navbar-brand" href="../index.php"> SISTEMA DE MAESTROS</a>
       
       </div>
     </nav>

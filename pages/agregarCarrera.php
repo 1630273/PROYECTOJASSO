@@ -40,7 +40,7 @@
                     <div class="col-12 col-md-6  mb-3 ">
 
                         <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" placeholder="Nombre de la materia" class="form-control" requierd>
+                        <input type="text" name="nombre" placeholder="Nombre de la Carrera" class="form-control" requierd>
                     </div>
                    
                 </div>
