@@ -129,7 +129,7 @@
                                 <td> <?php echo $row['Nombre'] ?> </td>
                                 <td> 
                                  
-                                <a href="eliminar_materia.php?Id_materia_carrera=<?php echo $row['Id_materia_carrera']?>&Id_carrera=<?php echo $row['Id_carrera']?> "class="btn btn-danger">
+                                <a href="eliminar_materia_Carrera.php?Id_materia_carrera=<?php echo $row['Id_materia_carrera']?>&Id_carrera=<?php echo $row['Id_carrera']?> "class="btn btn-danger">
                                 <i class="far fa-trash-alt"></i>
                                 </a> 
                             </td>

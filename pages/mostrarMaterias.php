@@ -3,7 +3,7 @@
 
     include("../includes/headerAdmin.php");
 
-$carrea=1;
+$carrera=1;
     if(isset($_POST['guardar'])){
        
             
@@ -64,7 +64,7 @@ $carrea=1;
                             </thead>
                             <tbody>
                         <?php
-                            $obtener = "select A.Nombre_materia, C.Nombre, B.Id_materia_carrera, B.Id_carrera FROM materia A INNER JOIN materia_carrera AS B ON A.Id_materia= B.Id_materia
+                            $obtener = "select A.Nombre_materia, C.Nombre, B.Id_materia_carrera, A.Id_materia, B.Id_carrera FROM materia A INNER JOIN materia_carrera AS B ON A.Id_materia= B.Id_materia
                              INNER JOIN  num_cuatri AS C ON C.Id_num_cuatri =B.Id_num_cuatri WHERE B.Id_carrera='".$carrera."' ";
                             $resultadosObtenidos = mysqli_query($conexion,$obtener);
                                     
@@ -79,9 +79,10 @@ $carrea=1;
                                 <td> <?php echo $row['Nombre'] ?> </td>
                                 <td> 
                                  
-                              
-                                
-                            </td>
+                                <a href="eliminar_materia.php?Id_materia=<?php echo $row['Id_materia']?> "class="btn btn-danger">
+                                 <i class="far fa-trash-alt"></i>
+                                 </a> 
+                             </td>
     
                         
         

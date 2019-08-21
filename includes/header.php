@@ -36,7 +36,7 @@ while($row = mysqli_fetch_array($resultadosObtenidos)){?>
 
 
 
-     <?php echo $row['Nombre'].$row['Ap_paterno'].$row['Ap_materno']?> 
+<?php echo strtoupper($row['Nombre'].' '.$row['Ap_paterno'].' '.$row['Ap_materno'])?>  
     
 <?php } ?>
 

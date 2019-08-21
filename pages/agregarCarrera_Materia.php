@@ -13,18 +13,6 @@
             $consulta = "INSERT INTO materia_carrera(Id_materia,Id_num_cuatri,Id_carrera) VALUES('$materia','$numero','$carrera')";
         
             $resultado = mysqli_query($conexion,$consulta);          
-           
-            
-            if($resultado ){
-                ?>
-                <h3>Registro exitoso</h3>
-                <?php
-            } else {
-                ?>
-                <h3>HA ocurrido un error</h3>
-                <?php
-            }
-
         
     } 
 ?>

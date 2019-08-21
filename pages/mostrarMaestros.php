@@ -3,14 +3,9 @@
 
     include("../includes/headerAdmin.php");
 
-$carrea=1;
+$carrera=1;
     if(isset($_POST['guardar'])){
-       
-            
-          
-        $carrera=$_POST['carrera'];
-
-        
+        $carrera=$_POST['carrera'];     
     } 
 ?>
 
@@ -56,16 +51,16 @@ $carrea=1;
                                 <tr>
                                     
                                         
-                                        <th>Materia</th>
-                                        <th>Cuatrimestre</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido Paterno</th>
+                                        <th>Apellido Materno</th>
                                         <th>Acciones</th>
                                         
                                 </tr>
                             </thead>
                             <tbody>
                         <?php
-                            $obtener = "select A.Nombre_materia, C.Nombre, B.Id_materia_carrera, B.Id_carrera FROM materia A INNER JOIN materia_carrera AS B ON A.Id_materia= B.Id_materia
-                             INNER JOIN  num_cuatri AS C ON C.Id_num_cuatri =B.Id_num_cuatri WHERE B.Id_carrera='".$carrera."' ";
+                            $obtener = "select Id_empleado, Nombre, Ap_paterno,Ap_materno from empleado where Id_carrera='".$carrera."' ";
                             $resultadosObtenidos = mysqli_query($conexion,$obtener);
                                     
                         while($row = mysqli_fetch_array($resultadosObtenidos)){?>
@@ -73,18 +68,19 @@ $carrea=1;
                             <tr>
                             
                                 
-                                <td> <?php echo $row['Nombre_materia'] ?> </td>
-                                
-                                
                                 <td> <?php echo $row['Nombre'] ?> </td>
-                                <td> 
-                                 
-                              
                                 
-                            </td>
+                                
+                                <td> <?php echo $row['Ap_paterno'] ?> </td>
+                                <td> <?php echo $row['Ap_materno'] ?> </td>
     
                         
-        
+                                <td> 
+                                 
+                                 <a href="eliminar_maestro.php?Id_empleado=<?php echo $row['Id_empleado']?> "class="btn btn-danger">
+                                 <i class="far fa-trash-alt"></i>
+                                 </a> 
+                             </td>
                             </tr>
                             <?php } ?>
                         

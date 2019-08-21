@@ -3,7 +3,7 @@
    ?>
 
     <main class="container ">
-        <div clas="row no-wrap ">
+        <div clas="row  ">
            <div class="contenedor d-flex  ">
                 <div class="col-3 mt-4  ">
                     <div class=" bg-success text-white ">
@@ -22,7 +22,6 @@
                     </div>              
                 </div> 
 
-            
                 <div class="col-3 mt-4  ">
                     <div class=" bg-success text-white ">
                         <div class="d-flex">
@@ -94,6 +93,8 @@
                         </div>
                     </div>
                 </div>
+
+                
 
             </div> 
         </div> 
