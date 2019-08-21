@@ -1,5 +1,5 @@
 <?php
-    include("../conexion/conexion.php");
+
 
     include("../includes/headerAdmin.php");
 
@@ -15,16 +15,7 @@
         
             $resultado = mysqli_query($conexion,$consulta);          
            
-            
-            if($resultado ){
-                ?>
-                <h3>Registro exitoso</h3>
-                <?php
-            } else {
-                ?>
-                <h3>HA ocurrido un error</h3>
-                <?php
-            }
+         
 
         
     } 
@@ -33,6 +24,9 @@
 <main class="conteiner ">
     <div class="row    ">
         <div class="col mx-5  ">
+        <div class=" mt-3 d-flex justify-content-center" >
+                    <h2> Alta de Cuatrimestres</h2>            
+         </div>
             <form method="post" >
 
             <div class="from-group row mt-3 d-flex justify-content-center" >
@@ -100,7 +94,7 @@
     <div class="row mt-4" >
         <div class="col-12   ">
             <div class="d-flex justify-content-around ">
-                <div class="col-6   ">
+                <div class="col-6 table-responsive  ">
                     <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -108,7 +102,7 @@
                                         
                                         <th>Materia</th>
                                         <th>Cuatrimestre</th>
-                                        <th>Acciones</th>
+                                        <th>Eliminar</th>
                                         
                                 </tr>
                             </thead>

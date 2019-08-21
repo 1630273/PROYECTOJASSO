@@ -6,22 +6,7 @@
     $query = mysqli_query($conexion,$sentencia);
 
     
-    $index = 1;
-    while($row = mysqli_fetch_array($query)){
-    $valor = $row["nombre"];
-    $valor2 = $row["apellido"];
     
-    $insertsql= "insert into lista (`dato1`,`dato2`)values ('$valor', now())";
-    // mysql_query($insertsql);
-    $conexion->query($insertsql);
-    $index++;
-    }
-    
-    if ($insertsql == TRUE) {
-        echo "Nuevos registros ingresados correctamente";
-    } else {
-        echo "Error: " . $insertsql . "<br>" . $conn->error;
-    }
  
 
 
@@ -32,7 +17,7 @@
 <div class="row mt-4" >
         <div class="col-12   ">
             <div class="d-flex justify-content-around ">
-            <div class="col-8   ">
+            <div class="col-8  table-responsive ">
                 <table class="table table-bordered">
                         <thead>
                             <tr>

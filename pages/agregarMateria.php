@@ -35,6 +35,9 @@
 <main class="conteiner ">
     <div class="row    ">
         <div class="col mx-5  ">
+        <div class=" mt-3 d-flex justify-content-center" >
+                    <h2> Alta de Materias</h2>            
+         </div>
             <form method="post" >
                 <div class="from-group row mt-3 d-flex justify-content-center" >
                     <div class="col-12 col-md-6  mb-3 ">
@@ -72,6 +75,56 @@
                  </form>
     
         </div> 
+    </div>
+
+    <div class="row mt-4" >
+        <div class="col-12   ">
+            <div class="d-flex justify-content-around ">
+                <div class="col-6  table-responsive ">
+                    <table class="table table-bordered">
+                            <thead >
+                                <tr>
+                                    
+                                        
+                                        <th scope="col">Materia</th>
+                                        <th scope="col">Categoria</th>
+                                        <th>Eliminar</th
+                                        
+                                </tr>
+                            </thead>
+                            <tbody>
+                        <?php
+                            $obtener = "select A.Nombre_materia,  A.Id_materia, B.Nombre FROM materia A INNER JOIN cat_materia AS B ON A.Id_cat_materia= B.Id_cat_materia ";
+                            $resultadosObtenidos = mysqli_query($conexion,$obtener);
+                                    
+                        while($row = mysqli_fetch_array($resultadosObtenidos)){?>
+
+                            <tr>
+                            
+                                
+                                <td> <?php echo $row['Nombre_materia'] ?> </td>
+                                
+                                
+                                <td> <?php echo $row['Nombre'] ?> </td>
+                                <td> 
+                                 
+                                <a href="eliminar_materia.php?Id_materia=<?php echo $row['Id_materia']?> "class="btn btn-danger">
+                                 <i class="far fa-trash-alt"></i>
+                                 </a> 
+                             </td>
+    
+                        
+        
+                            </tr>
+                            <?php } ?>
+                        
+                    </tbody>
+                    </table> 
+
+                        
+                </div>
+            </div>
+        </div>    
     </div>
 </main>    
 

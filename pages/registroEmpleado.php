@@ -14,7 +14,7 @@
             $carrera=$_POST['carrera'];
             $tipo=1;
             $pass=$_POST['confir'];
-            $consulta = "INSERT INTO empleado(Cod_empleado,Nombre,Ap_paterno,Ap_materno,Correo,Contrasena,Id_tipo_empleado,Id_carrera) VALUES('$cod_emp','$nombre','$AP','$AM','$correo','$pass','$carrera','$tipo')";
+            $consulta = "INSERT INTO empleado(Cod_empleado,Nombre,Ap_paterno,Ap_materno,Correo,Contrasena,Id_tipo_empleado,Id_carrera) VALUES('$cod_emp','$nombre','$AP','$AM','$correo','$pass','$tipo','$carrera')";
         
             $resultado = mysqli_query($conexion,$consulta);          
            
@@ -37,6 +37,9 @@
 <main class="conteiner">
     <div class="row    ">
         <div class="col mx-5  ">
+        <div class=" mt-3 d-flex justify-content-center" >
+                    <h2>Registro</h2>            
+         </div>
             <form method="post" >
                 <div class="from-group row mt-3">
                     <div class="col-12 col-md-6  mb-3">

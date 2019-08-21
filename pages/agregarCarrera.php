@@ -14,16 +14,6 @@
         
             $resultado = mysqli_query($conexion,$consulta);          
            
-            
-            if($resultado ){
-                ?>
-                <h3>Registro exitoso</h3>
-                <?php
-            } else {
-                ?>
-                <h3>HA ocurrido un error</h3>
-                <?php
-            }
 
             $id_carrera=mysqli_insert_id($conexion);
            
@@ -35,7 +25,11 @@
 <main class="conteiner ">
     <div class="row    ">
         <div class="col mx-5  ">
+        <div class=" mt-3 d-flex justify-content-center" >
+                    <h2> Alta de Carreras</h2>            
+         </div>
             <form method="post" >
+                
                 <div class="from-group row mt-3 d-flex justify-content-center" >
                     <div class="col-12 col-md-6  mb-3 ">
 
@@ -59,15 +53,60 @@
 
                 </div>
           
+                <div class="row mt-4" >
+                    <div class="col-12   ">
+                        <div class="d-flex justify-content-around ">
+                            <div class="col-6 table-responsive  ">
+                                <table class="table table-bordered">
+                                        <thead>
+                                            <tr>    
+                                                    <th>Carrera</th>
+                                                    <th>Siglas</th>
+                                                    <th>Agregar Materia</th>
+                                                    <th>Eliminar</th>
+                                                    
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                    <?php
+                                        $obtener = "select  Id_carrera,Nombre, Siglas FROM carrera ";
+                                        $resultadosObtenidos = mysqli_query($conexion,$obtener);
+                                                
+                                    while($row = mysqli_fetch_array($resultadosObtenidos)){?>
 
-                 <div class="from-group row   d-flex justify-content-end ">
-                   <div class="col-12 col-md-6  mb-3  ">
-                      <a href="agregarMateria_Carrera.php?id_carrera=<?php echo $id_carrera?>" class="btn btn-primary"> Siguiente
-                      <i class="fas fa-arrow-circle-right fa-sm  mx-2"></i>
-                      </a>
-                    </div>
+                                        <tr>
+                                        
+                                            
+                                             <td> <?php echo $row['Nombre'] ?> </td>
+                                            <td> <?php echo $row['Siglas'] ?> </td>
+                                            
+                                            <td> 
+                                            
+                                            <a href="agregarCarrera_materia.php?id_carrera=<?php echo $row['Id_carrera']?> "class="btn btn-success">
+                                            <i class="fas fa-plus"></i>
+                                            </a> 
+                                        </td>
+                                            <td> 
+                                            
+                                            <a href="eliminar_carrera.php?Id_carrera=<?php echo $row['Id_carrera']?> "class="btn btn-danger">
+                                            <i class="far fa-trash-alt"></i>
+                                            </a> 
+                                        </td>
+                                       
+                                    
+                    
+                                        </tr>
+                                        <?php } ?>
+                                    
+                                </tbody>
+                                </table> 
 
-                 </div>
+                                    
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                
                  </form>
     
         </div> 

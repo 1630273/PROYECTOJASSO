@@ -4,12 +4,7 @@
     session_start();
     $usuario = $_SESSION['usuario'];
 
-
-   
-   ?>
-
-  
-
+    ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,24 +19,42 @@
   <body>
 
     <nav class="navbar navbar-dark bg-primary">
-      <div class="container d-flex justify-content-start">
-        <a class="navbar-brand" href="PrinMaestro.php"> SISTEMA DE MAESTROS</a>
+      <div class="container">
+       
+        <a class="navbar-brand" href="#">
+                <?php
+                $obtener = "select  Nombre,Ap_paterno, Ap_materno FROM empleado WHERE correo ='".$usuario."' ";
+           $resultadosObtenidos = mysqli_query($conexion,$obtener);
+                   
+            
+        while($row = mysqli_fetch_array($resultadosObtenidos)){?>
 
-<?php
-        $obtener = "select Nombre,Ap_paterno, Ap_materno FROM empleado WHERE correo ='".$usuario."' ";
-   $resultadosObtenidos = mysqli_query($conexion,$obtener);
 
 
-while($row = mysqli_fetch_array($resultadosObtenidos)){?>
+          <?php echo strtoupper($row['Nombre'].' '.$row['Ap_paterno'].' '.$row['Ap_materno'])?> 
+         
+        <?php } ?>
+      </a>
+       <a class="navbar-brand" href="PrinMaestro.php">SISTEMA DE MAESTROS</a> 
+       <div>
+       <?php
+                $obtener = "select Id_empleado FROM empleado WHERE correo ='".$usuario."' ";
+           $resultadosObtenidos = mysqli_query($conexion,$obtener);
+                   
+            
+        while($row = mysqli_fetch_array($resultadosObtenidos)){?>
 
 
+            <a class="navbar-brand" href="modificarEmpleado.php?Id_empleado=<?php echo $row['Id_empleado']?>"  name="registrar">Perfil</a>
+            
+            <?php } ?>
+            <a class="navbar-brand" href="../conexion/logout.php">Logout</a>
+          
+           
+        </div>  
+           
 
-<?php echo strtoupper($row['Nombre'].' '.$row['Ap_paterno'].' '.$row['Ap_materno'])?>  
-    
-<?php } ?>
 
-        
-      </div>
     </nav>
 
     <div

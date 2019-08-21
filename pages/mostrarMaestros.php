@@ -54,7 +54,7 @@ $carrera=1;
                                         <th>Nombre</th>
                                         <th>Apellido Paterno</th>
                                         <th>Apellido Materno</th>
-                                        <th>Acciones</th>
+                                        <th>Eliminar</th>
                                         
                                 </tr>
                             </thead>

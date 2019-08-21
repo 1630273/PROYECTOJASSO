@@ -3,6 +3,7 @@
 
     session_start();
     $usuario = $_SESSION['usuario'];
+
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,22 +20,26 @@
 
     <nav class="navbar navbar-dark bg-primary">
       <div class="container">
-        <a class="navbar-brand" href="PrinAdmin.php">SISTEMA DE MAESTROS</a> 
+       
+        <a class="navbar-brand" href="#">
+                <?php
+                $obtener = "select Nombre,Ap_paterno, Ap_materno FROM empleado WHERE correo ='".$usuario."' ";
+           $resultadosObtenidos = mysqli_query($conexion,$obtener);
+                   
+            
+        while($row = mysqli_fetch_array($resultadosObtenidos)){?>
+
+
+
+          <?php echo strtoupper($row['Nombre'].' '.$row['Ap_paterno'].' '.$row['Ap_materno'])?> 
+         
+        <?php } ?>
+      </a>
+       <a class="navbar-brand" href="PrinAdmin.php">SISTEMA DE MAESTROS</a> 
+       <div>
         
-   
-        <?php
-        $obtener = "select Nombre,Ap_paterno, Ap_materno FROM empleado WHERE correo ='".$usuario."' ";
-   $resultadosObtenidos = mysqli_query($conexion,$obtener);
-           
-    
-while($row = mysqli_fetch_array($resultadosObtenidos)){?>
-
-
-
-  <?php echo strtoupper($row['Nombre'].' '.$row['Ap_paterno'].' '.$row['Ap_materno'])?> 
- 
-<?php } ?>
-  
-
+        <a class="navbar-brand" href="../conexion/logout.php">Logout</a>
       </div>
+      </div>
+
     </nav>

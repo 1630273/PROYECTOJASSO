@@ -68,7 +68,7 @@
     <div class="row mt-4" >
         <div class="col-12   ">
             <div class="d-flex justify-content-around ">
-                <div class="col-6   ">
+                <div class="col-6  table-responsive ">
                     <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -76,7 +76,7 @@
                                         
                                         <th>Materia</th>
                                         <th>Cuatrimestre</th>
-                                        <th>Acciones</th>
+                                        <th>Eliminar</th>
                                         
                                 </tr>
                             </thead>

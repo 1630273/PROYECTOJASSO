@@ -29,7 +29,8 @@ if($array['contar']>0){
     
 }
 else{
-    echo "Datos incorrectos";
+        
+    header('Location:../index.php'); 
 }
 
 

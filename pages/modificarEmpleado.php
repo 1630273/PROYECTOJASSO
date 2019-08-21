@@ -1,6 +1,5 @@
 <?php
 
-include("../conexion/conexion.php");
 
 include("../includes/header.php");
 $cod_emp= '';
@@ -9,13 +8,13 @@ $AP=  '';
 $AM=  '';
 $correo ='';
 $carrera='';
-$tipo='';
+
 $pass='';
 
 
 if(isset($_GET['Id_empleado'])) {
     $Id_empleado = $_GET['Id_empleado'];
-    $query = "SELECT *  FROM empleado WHERE Id_empleado=$Id_empleado";
+    $query = "SELECT Cod_empleado,Nombre,Ap_paterno,Ap_materno,Correo,Contrasena,Id_carrera FROM empleado WHERE Id_empleado=$Id_empleado";
     $result = mysqli_query($conexion, $query);
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_array($result);
@@ -25,9 +24,8 @@ if(isset($_GET['Id_empleado'])) {
         $AM = $row['Ap_materno'];
         $correo= $row['Correo'];
         $pass = $row['Contrasena'];
-        $tipo = $row['Id_tipo_empleado'];
         $carrera = $row['Id_carrera'];
-        $pass=$row['Contrasena'];
+       
        
         
     }
@@ -41,18 +39,17 @@ if(isset($_GET['Id_empleado'])) {
         $AM=  $_POST['AM'];
         $correo =$_POST['correo'];
         $carrera=$_POST['carrera'];
-        $tipo=$_POST['tipo'];
         $pass=$_POST['confir'];
       
         $query = "UPDATE empleado set Cod_empleado = '$cod_emp', Nombre = '$nombre', Ap_paterno = '$AP', Ap_materno = '$AM'
-        ,Correo ='$correo', Id_carrera='$carrera', Id_tipo_empleado='$tipo' WHERE Id_empleado= $Id_empleado ";
+        ,Correo ='$correo', Id_carrera='$carrera' WHERE Id_empleado= $Id_empleado ";
         mysqli_query($conexion, $query);
 
          
       
 
     
-    header('Location:registro2.php'); 
+    header('Location:PrinMaestros.php'); 
 }
 
 
@@ -88,26 +85,12 @@ if(isset($_GET['Id_empleado'])) {
                 </div>
 
                 <div class="from-group row mt-3">
-                    <div class="col-6 col-md-3  mb-3">
-
-                        <label for="tipo">Tipo Usuario</label>
-                        <select name="tipo" class="form-control">
-                        <option value="<?php echo $tipo; ?>>Seleccione:</option>
-                            <?php
-                            $cargartipos = ("SELECT Id_tipo_empleado,Nombre FROM tipo_empleado");
-                            $resultadostipos = mysqli_query($conexion,$cargartipos);
-                            while ($row = mysqli_fetch_array($resultadostipos)) {?>
-                            <option value="<?php echo $row['Id_tipo_empleado'] ?>"><?php echo $row['Nombre'] ?></option><?php
-                            }
-                            ?>
-                        </select>
-               
-                    </div>
-                    <div class="col-6 col-md-3  mb-3">
+                    
+                    <div class="col-12 col-md-6  mb-3">
 
                         <label for="carrera">Carrera</label>
                         <select name="carrera" class="form-control">
-                        <option value="<?php echo $carrera ?>>Seleccione:</option>
+                        <option value="<?php echo $carrera ?>">SELECCIONE:</option>
                             <?php
                             $cargarcarreras = ("SELECT id_carrera,siglas FROM carrera");
                             $resultadosCarreras = mysqli_query($conexion,$cargarcarreras);
